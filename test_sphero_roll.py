@@ -24,129 +24,130 @@ from std_msgs.msg import String
 # Sphero configuration
 SPHEROS = ['SB-3660', 'SB-3716', 'SB-74FB', 'SB-D2F0']
 
-
 STRATEGIES = {
     'STRATEGY_1_NOT_COLOCATED_FORMATION': {
         'ZONE 1': {
-            'SB-3660': {'heading': 45, 'speed': 150, 'duration': 0.6},
-            'SB-3716': {'heading': 65, 'speed': 150, 'duration': 1.58},
-            'SB-D2F0': {'heading': 295, 'speed': 150, 'duration': 1.59},
-            'SB-74FB': {'heading': 290, 'speed': 150, 'duration': 0.5}
+            SPHEROS[0]: {'heading': 45, 'speed': 150, 'duration': 0.6},
+            SPHEROS[1]: {'heading': 65, 'speed': 150, 'duration': 1.58},
+            SPHEROS[2]: {'heading': 295, 'speed': 150, 'duration': 1.59},
+            SPHEROS[3]: {'heading': 290, 'speed': 150, 'duration': 0.5}
         },
         'ZONE 2': {
-            'SB-3660': {'heading': 70, 'speed': 150, 'duration': 1},
-            'SB-3716': {'heading': 55, 'speed': 150, 'duration': 1},
-            'SB-D2F0': {'heading': 305, 'speed': 150, 'duration': 1},
-            'SB-74FB': {'heading': 290, 'speed': 150, 'duration': 1}
+            SPHEROS[0]: {'heading': 70, 'speed': 150, 'duration': 1},
+            SPHEROS[1]: {'heading': 55, 'speed': 150, 'duration': 1},
+            SPHEROS[2]: {'heading': 305, 'speed': 150, 'duration': 1},
+            SPHEROS[3]: {'heading': 290, 'speed': 150, 'duration': 1}
         },
         'ZONE 3': {
-            'SB-3660': {'heading': 84, 'speed': 150, 'duration': 1.5},
-            'SB-3716': {'heading': 75, 'speed': 150, 'duration': 0.5},
-            'SB-D2F0': {'heading': 280, 'speed': 150, 'duration': 0.6},
-            'SB-74FB': {'heading': 276, 'speed': 150, 'duration': 1.32}
+            SPHEROS[0]: {'heading': 84, 'speed': 150, 'duration': 1.5},
+            SPHEROS[1]: {'heading': 75, 'speed': 150, 'duration': 0.5},
+            SPHEROS[2]: {'heading': 280, 'speed': 150, 'duration': 0.6},
+            SPHEROS[3]: {'heading': 276, 'speed': 150, 'duration': 1.32}
         }
     },
+
     'STRATEGY_2_COLOCATED_RANDOM': {
         'ZONE 1': {
-            'SB-3660': {'heading': 60, 'speed': 150, 'duration': 1.02},
-            'SB-3716': {'heading': 45, 'speed': 150, 'duration': 1.58},
-            'SB-D2F0': {'heading': 215, 'speed': 150, 'duration': 0.59},
-            'SB-74FB': {'heading': 190, 'speed': 150, 'duration': 1.2}
+            SPHEROS[0]: {'heading': 60, 'speed': 150, 'duration': 1.02},
+            SPHEROS[1]: {'heading': 45, 'speed': 150, 'duration': 1.58},
+            SPHEROS[2]: {'heading': 215, 'speed': 150, 'duration': 0.59},
+            SPHEROS[2]: {'heading': 190, 'speed': 150, 'duration': 1.2}  # SB-74FB → SPHEROS[2]
         },
         'ZONE 2': {
-            'SB-3660': {'heading': 70, 'speed': 150, 'duration': 1.12},
-            'SB-3716': {'heading': 85, 'speed': 150, 'duration': 1.58},
-            'SB-D2F0': {'heading': 195, 'speed': 150, 'duration': 1.59},
-            'SB-74FB': {'heading': 90, 'speed': 150, 'duration': 0.32}
+            SPHEROS[0]: {'heading': 70, 'speed': 150, 'duration': 1.12},
+            SPHEROS[1]: {'heading': 85, 'speed': 150, 'duration': 1.58},
+            SPHEROS[2]: {'heading': 195, 'speed': 150, 'duration': 1.59},
+            SPHEROS[2]: {'heading': 90, 'speed': 150, 'duration': 0.32}
         },
         'ZONE 3': {
-            'SB-3660': {'heading': 80, 'speed': 150, 'duration': 0.32},
-            'SB-3716': {'heading': 65, 'speed': 150, 'duration': 0.58},
-            'SB-D2F0': {'heading': 295, 'speed': 150, 'duration': 1.19},
-            'SB-74FB': {'heading': 290, 'speed': 150, 'duration': 1.32}
+            SPHEROS[0]: {'heading': 80, 'speed': 150, 'duration': 0.32},
+            SPHEROS[1]: {'heading': 65, 'speed': 150, 'duration': 0.58},
+            SPHEROS[3]: {'heading': 295, 'speed': 150, 'duration': 1.19},
+            SPHEROS[2]: {'heading': 290, 'speed': 150, 'duration': 1.32}
         }
     },
+
     'STRATEGY_3_COLOCATED_FORMATION': [
         {
             'ZONE 3': {
-                'SB-3660': {'heading': 0, 'speed': 150, 'duration': 1.11},
-                'SB-3716': {'heading': 0, 'speed': 150, 'duration': 0.95},
-                'SB-D2F0': {'heading': 0, 'speed': 150, 'duration': 0.89},
-                'SB-74FB': {'heading': 0, 'speed': 150, 'duration': 0.85}
+                SPHEROS[0]: {'heading': 0, 'speed': 150, 'duration': 1.11},
+                SPHEROS[1]: {'heading': 0, 'speed': 150, 'duration': 0.95},
+                SPHEROS[3]: {'heading': 0, 'speed': 150, 'duration': 0.89},
+                SPHEROS[2]: {'heading': 0, 'speed': 150, 'duration': 0.85}
             },
             'ZONE 2': {
-                'SB-3660': {'heading': 0, 'speed': 150, 'duration': 1.11},
-                'SB-3716': {'heading': 0, 'speed': 150, 'duration': 0.95},
-                'SB-D2F0': {'heading': 0, 'speed': 150, 'duration': 0.89},
-                'SB-74FB': {'heading': 0, 'speed': 150, 'duration': 0.85}
+                SPHEROS[0]: {'heading': 0, 'speed': 150, 'duration': 1.11},
+                SPHEROS[1]: {'heading': 0, 'speed': 150, 'duration': 0.95},
+                SPHEROS[3]: {'heading': 0, 'speed': 150, 'duration': 0.89},
+                SPHEROS[2]: {'heading': 0, 'speed': 150, 'duration': 0.85}
             },
             'ZONE 1': {
-                'SB-3660': {'heading': 0, 'speed': 150, 'duration': 1.11},
-                'SB-3716': {'heading': 0, 'speed': 150, 'duration': 0.95},
-                'SB-D2F0': {'heading': 0, 'speed': 150, 'duration': 0.89},
-                'SB-74FB': {'heading': 0, 'speed': 150, 'duration': 0.85}
+                SPHEROS[0]: {'heading': 0, 'speed': 150, 'duration': 1.11},
+                SPHEROS[1]: {'heading': 0, 'speed': 150, 'duration': 0.95},
+                SPHEROS[3]: {'heading': 0, 'speed': 150, 'duration': 0.89},
+                SPHEROS[2]: {'heading': 0, 'speed': 150, 'duration': 0.85}
             }
         },
         {
             'ZONE 3': {
-                'SB-3660': {'heading': 0, 'speed': 0, 'duration': 0.1},
-                'SB-3716': {'heading': 0, 'speed': 0, 'duration': 0.1},
-                'SB-D2F0': {'heading': 0, 'speed': 0, 'duration': 0.1},
-                'SB-74FB': {'heading': 0, 'speed': 0, 'duration': 0.1},
+                SPHEROS[0]: {'heading': 0, 'speed': 0, 'duration': 0.1},
+                SPHEROS[1]: {'heading': 0, 'speed': 0, 'duration': 0.1},
+                SPHEROS[3]: {'heading': 0, 'speed': 0, 'duration': 0.1},
+                SPHEROS[2]: {'heading': 0, 'speed': 0, 'duration': 0.1},
             },
             'ZONE 2': {
-                'SB-3660': {'heading': 0, 'speed': 0, 'duration': 0.1},
-                'SB-3716': {'heading': 0, 'speed': 0, 'duration': 0.1},
-                'SB-D2F0': {'heading': 0, 'speed': 0, 'duration': 0.1},
-                'SB-74FB': {'heading': 0, 'speed': 0, 'duration': 0.1},
+                SPHEROS[0]: {'heading': 0, 'speed': 0, 'duration': 0.1},
+                SPHEROS[1]: {'heading': 0, 'speed': 0, 'duration': 0.1},
+                SPHEROS[3]: {'heading': 0, 'speed': 0, 'duration': 0.1},
+                SPHEROS[2]: {'heading': 0, 'speed': 0, 'duration': 0.1},
             },
             'ZONE 1': {
-                'SB-3660': {'heading': 0, 'speed': 0, 'duration': 0.1},
-                'SB-3716': {'heading': 0, 'speed': 0, 'duration': 0.1},
-                'SB-D2F0': {'heading': 0, 'speed': 0, 'duration': 0.1},
-                'SB-74FB': {'heading': 0, 'speed': 0, 'duration': 0.1},
+                SPHEROS[0]: {'heading': 0, 'speed': 0, 'duration': 0.1},
+                SPHEROS[1]: {'heading': 0, 'speed': 0, 'duration': 0.1},
+                SPHEROS[3]: {'heading': 0, 'speed': 0, 'duration': 0.1},
+                SPHEROS[2]: {'heading': 0, 'speed': 0, 'duration': 0.1},
             }
         },
         {
             'ZONE 3': {
-                'SB-3660': {'heading': 270, 'speed': 150, 'duration': 0.3},
-                'SB-3716': {'heading': 270, 'speed': 150, 'duration': 0.2},
-                'SB-D2F0': {'heading': 270, 'speed': 150, 'duration': 0.1},
-                'SB-74FB': {'heading': 270, 'speed': 150, 'duration': 0.05}
+                SPHEROS[0]: {'heading': 270, 'speed': 150, 'duration': 0.3},
+                SPHEROS[1]: {'heading': 270, 'speed': 150, 'duration': 0.2},
+                SPHEROS[3]: {'heading': 270, 'speed': 150, 'duration': 0.1},
+                SPHEROS[2]: {'heading': 270, 'speed': 150, 'duration': 0.05}
             },
             'ZONE 2': {
-                'SB-3660': {'heading': 270, 'speed': 150, 'duration': 0.3},
-                'SB-3716': {'heading': 270, 'speed': 150, 'duration': 0.2},
-                'SB-D2F0': {'heading': 270, 'speed': 150, 'duration': 0.1},
-                'SB-74FB': {'heading': 270, 'speed': 150, 'duration': 0.05}
+                SPHEROS[0]: {'heading': 270, 'speed': 150, 'duration': 0.3},
+                SPHEROS[1]: {'heading': 270, 'speed': 150, 'duration': 0.2},
+                SPHEROS[3]: {'heading': 270, 'speed': 150, 'duration': 0.1},
+                SPHEROS[2]: {'heading': 270, 'speed': 150, 'duration': 0.05}
             },
             'ZONE 1': {
-                'SB-3660': {'heading': 270, 'speed': 150, 'duration': 0.3},
-                'SB-3716': {'heading': 270, 'speed': 150, 'duration': 0.2},
-                'SB-D2F0': {'heading': 270, 'speed': 150, 'duration': 0.1},
-                'SB-74FB': {'heading': 270, 'speed': 150, 'duration': 0.05}
+                SPHEROS[0]: {'heading': 270, 'speed': 150, 'duration': 0.3},
+                SPHEROS[1]: {'heading': 270, 'speed': 150, 'duration': 0.2},
+                SPHEROS[3]: {'heading': 270, 'speed': 150, 'duration': 0.1},
+                SPHEROS[2]: {'heading': 270, 'speed': 150, 'duration': 0.05}
             }
         }
     ],
 
     'STRATEGY_4_NOT_COLOCATED_RANDOM': {
         'ZONE 1': {
-            'SB-3660': {'heading': 30, 'speed': 150, 'duration': 1.32},
-            'SB-3716': {'heading': 85, 'speed': 150, 'duration': 1.58},
-            'SB-D2F0': {'heading': 195, 'speed': 150, 'duration': 1.59},
-            'SB-74FB': {'heading': 210, 'speed': 150, 'duration': 1.32}
+            SPHEROS[0]: {'heading': 30, 'speed': 150, 'duration': 1.32},
+            SPHEROS[1]: {'heading': 85, 'speed': 150, 'duration': 1.58},
+            SPHEROS[3]: {'heading': 195, 'speed': 150, 'duration': 1.59},
+            SPHEROS[2]: {'heading': 210, 'speed': 150, 'duration': 1.32}
         },
         'ZONE 2': {
-            'SB-3660': {'heading': 60, 'speed': 150, 'duration': 1.32},
-            'SB-3716': {'heading': 45, 'speed': 150, 'duration': 1.58},
-            'SB-D2F0': {'heading': 215, 'speed': 150, 'duration': 1.59},
-            'SB-74FB': {'heading': 190, 'speed': 150, 'duration': 1.32}
+            SPHEROS[0]: {'heading': 60, 'speed': 150, 'duration': 1.32},
+            SPHEROS[1]: {'heading': 45, 'speed': 150, 'duration': 1.58},
+            SPHEROS[3]: {'heading': 215, 'speed': 150, 'duration': 1.59},
+            SPHEROS[2]: {'heading': 190, 'speed': 150, 'duration': 1.32}
         },
         'ZONE 3': {
-            'SB-3660': {'heading': 80, 'speed': 150, 'duration': 1.32},
-            'SB-3716': {'heading': 45, 'speed': 150, 'duration': 1.58},
-            'SB-D2F0': {'heading': 235, 'speed': 150, 'duration': 1.59},
-            'SB-74FB': {'heading': 220, 'speed': 150, 'duration': 1.32}
+            SPHEROS[0]: {'heading': 80, 'speed': 150, 'duration': 1.32},
+            SPHEROS[1]: {'heading': 45, 'speed': 150, 'duration': 1.58},
+            SPHEROS[3]: {'heading': 235, 'speed': 150, 'duration': 1.59},
+            SPHEROS[2]: {'heading': 220, 'speed': 150, 'duration': 1.32}
         }
     }
 }
@@ -387,10 +388,30 @@ def main():
     print("[STEP 1] Starting device and task controller nodes for all Spheros...")
     print("-" * 80)
 
-    for sphero_name in SPHEROS:
-        # Start device controller
-        start_node('device', sphero_name, external_localization=False)
-        time.sleep(20)  # Small delay between node starts
+    MAX_RETRIES = 5
+
+	for sphero_name in SPHEROS:
+		print(f"\n=== Starting {sphero_name} ===")
+	
+		started = False
+		attempts = 0
+	
+		while not started and attempts < MAX_RETRIES:
+			attempts += 1
+			print(f"[INFO] Attempt {attempts}/{MAX_RETRIES} to start {sphero_name}")
+	
+			try:
+				start_node('device', sphero_name, external_localization=False)
+				started = True
+				print(f"[SUCCESS] Started {sphero_name}")
+			except Exception as e:
+				print(f"[ERROR] Failed to start {sphero_name}: {e}")
+				time.sleep(3)  # short delay before retry
+	
+		if not started:
+			print(f"[FATAL] Could not start {sphero_name} after {MAX_RETRIES} retries.")
+	
+		time.sleep(20)  # keep your original delay
 
 
     # Check if any processes have died
