@@ -51,7 +51,7 @@ STRATEGIES = {
 			SPHEROS[0]: {'heading': 60, 'speed': 150, 'duration': 1.02},
 			SPHEROS[1]: {'heading': 45, 'speed': 150, 'duration': 1.58},
 			SPHEROS[2]: {'heading': 215, 'speed': 150, 'duration': 0.59},
-			SPHEROS[2]: {'heading': 190, 'speed': 150, 'duration': 1.2}	 # SB-74FB → SPHEROS[2]
+			SPHEROS[2]: {'heading': 190, 'speed': 150, 'duration': 1.2}
 		},
 		'ZONE 2': {
 			SPHEROS[0]: {'heading': 70, 'speed': 150, 'duration': 1.12},
@@ -333,13 +333,25 @@ def start_node(node_type: str, sphero_name: str, external_localization: bool = F
 	else:
 		raise ValueError(f"Unknown node_type: {node_type}")
 
-	print(f"[INFO] Starting {node_type} controller for {sphero_name}...")
-	proc = subprocess.Popen(
-		cmd,
-		stdout=subprocess.DEVNULL,
-		stderr=None
-	)
-	processes.append(proc)
+	MAX_RETRIES = 5
+	RETRIES = 1
+	if RETRIES<MAX_RETRIES:
+		print(f"[INFO] Starting {node_type} controller for {sphero_name}...")
+		try:
+			proc = subprocess.Popen(
+				cmd,
+				stdout=subprocess.DEVNULL,
+				stderr=None
+			)
+			processes.append(proc)
+		 
+		except Exception as e:
+			print(f"Try number {MAX_RETRIES} [ERROR] Failed to start {node_type} controller for {sphero_name}: {e}")
+			time.sleep(3)
+			RETRIES += 1
+		return None
+	else:
+		print(f"Maximum retries exceeded for sphero:{sphero_name}")
 	return proc
 
 
@@ -393,24 +405,7 @@ def main():
 	for sphero_name in SPHEROS:
 		print(f"\n=== Starting {sphero_name} ===")
 	
-		started = False
-		attempts = 0
-	
-		while not started and attempts < MAX_RETRIES:
-			attempts += 1
-			print(f"[INFO] Attempt {attempts}/{MAX_RETRIES} to start {sphero_name}")
-	
-			try:
-				start_node('device', sphero_name, external_localization=False)
-				started = True
-				print(f"[SUCCESS] Started {sphero_name}")
-			except Exception as e:
-				print(f"[ERROR] Failed to start {sphero_name}: {e}")
-				time.sleep(3)
-	
-		if not started:
-			print(f"[FATAL] Could not start {sphero_name} after {MAX_RETRIES} retries.")
-	
+		start_node('device', sphero_name, external_localization=False)
 		time.sleep(20)
 
 
