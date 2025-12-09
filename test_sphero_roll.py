@@ -348,8 +348,8 @@ def start_node(node_type: str, sphero_name: str, external_localization: bool = F
 		if not proc:
 		
 			print(f"Try number {RETRIES} [ERROR] Failed to start {node_type} controller for {sphero_name}")
-			time.sleep(3)
 			
+		time.sleep(3)
 		RETRIES += 1
 	return proc
 
