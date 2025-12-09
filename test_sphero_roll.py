@@ -335,23 +335,22 @@ def start_node(node_type: str, sphero_name: str, external_localization: bool = F
 
 	MAX_RETRIES = 5
 	RETRIES = 1
-	if RETRIES<MAX_RETRIES:
+	while RETRIES<MAX_RETRIES
+	
 		print(f"[INFO] Starting {node_type} controller for {sphero_name}...")
-		try:
-			proc = subprocess.Popen(
-				cmd,
-				stdout=subprocess.DEVNULL,
-				stderr=None
-			)
-			processes.append(proc)
-		 
-		except Exception as e:
-			print(f"Try number {MAX_RETRIES} [ERROR] Failed to start {node_type} controller for {sphero_name}: {e}")
+		
+		proc = subprocess.Popen(
+			cmd,
+			stdout=subprocess.DEVNULL,
+			stderr=None
+		)
+		processes.append(proc)
+	 	if not proc:
+	 	
+			print(f"Try number {RETRIES} [ERROR] Failed to start {node_type} controller for {sphero_name}")
 			time.sleep(3)
 			RETRIES += 1
-		return None
-	else:
-		print(f"Maximum retries exceeded for sphero:{sphero_name}")
+			
 	return proc
 
 
