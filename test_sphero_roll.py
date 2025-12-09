@@ -334,8 +334,8 @@ def start_node(node_type: str, sphero_name: str, external_localization: bool = F
 		raise ValueError(f"Unknown node_type: {node_type}")
 
 	MAX_RETRIES = 5
-	RETRIES = 1
-	while RETRIES<MAX_RETRIES
+	RETRIES = 0
+	while RETRIES<MAX_RETRIES:
 	
 		print(f"[INFO] Starting {node_type} controller for {sphero_name}...")
 		
