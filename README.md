@@ -77,7 +77,6 @@ cs133_hri_sphero_soccer/
 │   ├── multirobot_webserver/           # Web interface
 │   │   ├── multirobot_webserver/
 │   │   │   ├── multirobot_webapp.py    # Flask web application
-│   │   │   └── sphero_instance_websocket_server.py
 │   │   ├── templates/                  # HTML templates
 │   │   ├── static/                     # CSS and JavaScript
 │   │   ├── README.md                   # Package documentation
@@ -103,7 +102,7 @@ The core package for controlling Sphero robots with three-tiered architecture:
 | Controller | Purpose | Features |
 |------------|---------|----------|
 | **Device Controller** | Low-level hardware control | LED, roll, spin, heading, speed, raw motors, collision detection |
-| **Task Controller** | High-level autonomous behaviors | move_to, patrol, circle, square, LED sequences |
+| **Task Controller** | High-level behaviors | move_to, patrol, circle, square, LED sequences |
 | **State Machine Controller** | Behavior orchestration | Configurable states, transitions, conditions |
 
 **Key Features:**
