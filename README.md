@@ -146,7 +146,7 @@ Web-based fleet management interface:
 - Computer with Bluetooth support
 
 ### Software
-- **ROS2 Humble** (or later)
+- **ROS2 Rolling** (or later)
 - **Python 3.10+**
 - **OpenCV** with ArUco support
 
@@ -404,5 +404,5 @@ This project is part of the CS133 Human-Robot Interaction course at Tufts Univer
 ## References
 
 - [Sphero BOLT Technical Documentation](https://sdk.sphero.com/)
-- [ROS2 Humble Documentation](https://docs.ros.org/en/humble/)
+- [ROS2 Rolling Documentation](https://docs.ros.org/en/rolling/)
 - [OpenCV ArUco Tutorial](https://docs.opencv.org/master/d5/dae/tutorial_aruco_detection.html)
